@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^add/$', learn_views.add, name='add'),
     url(r'^new_add/(\d+)/(\d+)/$', learn_views.add2, name="add2"),
     url(r'^admin/', admin.site.urls),
-    url(r'^polls/', include('polls.urls')),
+    url(r'^polls/', include('polls.urls', namespace="polls")),
 ]
 
