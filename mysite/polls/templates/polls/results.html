@@ -1,6 +1,15 @@
+<body>
 <h1>Result!</h1>
+
+{% if question.id  %}
+<p><strong>Hello </strong></p>
 <h1>{{ quesiton.quesiton_text }}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
     <li> {{ choice.choice.text }}--{{ choice.votes }} vote {{ choice.votes|pluralize }} </li>
     {% endfor %}
+</ul>
+{% else %}
+<p><strong>Error, not read question</strong></p>
+{% endif %}
+</body>

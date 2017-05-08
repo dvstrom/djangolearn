@@ -1,5 +1,6 @@
 <!-- polls/templates/polls/index.html -->
-
+<body>
+    <p> INDEX</p>
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -9,3 +10,4 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+</body>
