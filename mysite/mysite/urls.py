@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,13 +21,22 @@ from learn import views as learn_views
 from polls import views as polls_views
 # from learn import views
 from django.conf import settings
+from filebrowser.sites import site
+import xadmin
+# xadmin.autodiscover()
+# from xadmin.plugins import xversion
+# xversion.register_models()
 
 urlpatterns = [
     url(r'^$', learn_views.home, name='home'),
     url(r'^add/$', learn_views.add, name='add'),
     url(r'^new_add/(\d+)/(\d+)/$', learn_views.add2, name="add2"),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/filebrowser/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
+    # url(r'^admin/', admin.site.urls),
+    url(r'^admin/', xadmin.site.urls),
     url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'xadmin/', include(xadmin.site.urls)),
 ]
 
 if settings.DEBUG:

@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +43,10 @@ INSTALLED_APPS = [
     'learn',
     'debug_toolbar',
     # 'debugtools'
-    'polls'
+    'polls',
+    'xadmin',
+    'crispy_forms',
+    'reversion'
     ]
 
 MIDDLEWARE_CLASSES = [
@@ -76,6 +81,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+FILEBROWSER_DIRECTORY = ''
+DIRECTORY = ''
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -139,6 +148,14 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    )
+STATIC_ROOT = (
+    os.path.join(BASE_DIR, "collect_static")
+)
+
 #  debugtool-bar settings
 INTERNAL_IPS = ('127.0.0.1',)
 DEBUG_TOOLBAR_CONFIG = {'JQUERY_URL': r"http://code.jquery.com/jquery-2.1.1.min.js", }
+
